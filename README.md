@@ -1,4 +1,3 @@
 
-day2:  
 
-[Testing the web layer](https://spring.io/guides/gs/testing-web/)
+[1. Testing the web layer](doc/1_testing_the_web_layer.md)
