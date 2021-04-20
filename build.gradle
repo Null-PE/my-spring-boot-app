@@ -6,7 +6,6 @@ plugins {
 
 group = 'com.x.s'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '11'
 
 repositories {
 	mavenCentral()
@@ -19,6 +18,7 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	compile 'org.mybatis:mybatis:3.5.6'
 	implementation 'org.junit.jupiter:junit-jupiter:5.8.0-M1'
+	implementation 'org.apache.velocity:velocity:1.7'
 }
 
 test {
