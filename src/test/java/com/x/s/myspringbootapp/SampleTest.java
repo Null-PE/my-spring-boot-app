@@ -3,6 +3,9 @@ package com.x.s.myspringbootapp;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
+import org.springframework.mock.web.MockHttpServletRequest;
+import org.springframework.mock.web.MockHttpServletResponse;
+import org.springframework.mock.web.MockHttpSession;
 
 public class SampleTest {
 
@@ -74,7 +77,8 @@ public class SampleTest {
     @IndicativeSentencesGeneration(separator = " -> ", generator = DisplayNameGenerator.ReplaceUnderscores.class)
     class A_year_is_a_leap_year {
 
-        @Test
+        @ParameterizedTest(name = "Year {0} is a leap year.")
+        @ValueSource(ints = {2016, 2020, 2048})
         void if_it_is_divisible_by_4_but_not_by_100() {
             System.out.println("nested test");
         }
@@ -85,6 +89,33 @@ public class SampleTest {
             System.out.println("nested test");
         }
 
+        @Test
+        void test_a() {
+        }
+
+        @Test
+        void test_b() {
+        }
+
+
+    }
+
+    static class mocketTest{
+        private MockHttpServletRequest request;
+        private MockHttpServletResponse response;
+        private MockHttpSession session;
+
+        @BeforeEach
+        public void beforeEach() throws Exception {
+            request = new MockHttpServletRequest();
+            response = new MockHttpServletResponse();
+            session = new MockHttpSession();
+        }
+
+        @Test
+        void init_mocket() {
+
+        }
     }
 
 }
