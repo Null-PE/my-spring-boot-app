@@ -1,11 +1,17 @@
 package com.x.s.myspringbootapp;
 
+import com.x.s.myspringbootapp.controller.GreetingController;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
+import org.springframework.http.HttpRequest;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.mock.web.MockHttpSession;
+
+import javax.servlet.http.HttpServletRequest;
+
+import static org.mockito.Mockito.when;
 
 public class SampleTest {
 
@@ -98,24 +104,6 @@ public class SampleTest {
         }
 
 
-    }
-
-    static class mocketTest{
-        private MockHttpServletRequest request;
-        private MockHttpServletResponse response;
-        private MockHttpSession session;
-
-        @BeforeEach
-        public void beforeEach() throws Exception {
-            request = new MockHttpServletRequest();
-            response = new MockHttpServletResponse();
-            session = new MockHttpSession();
-        }
-
-        @Test
-        void init_mocket() {
-
-        }
     }
 
 }
