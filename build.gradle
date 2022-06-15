@@ -24,6 +24,9 @@ dependencies {
     implementation 'mysql:mysql-connector-java:8.0.25'
     implementation 'org.springframework.boot:spring-boot-starter-jdbc:2.5.3'
     implementation 'org.hamcrest:hamcrest-core:2.2'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.projectlombok:lombok:1.18.22'
+    annotationProcessor 'org.projectlombok:lombok:1.18.22'
 }
 
 test {
