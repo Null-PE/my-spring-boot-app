@@ -1,30 +1,19 @@
 package com.x.s.myspringbootapp.service;
 
-import com.x.s.myspringbootapp.utils.User;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Service;
+import com.x.s.myspringbootapp.entity.User;
 
-import java.util.List;
+import java.util.Optional;
 
-@Service
-public class UserService {
+public interface UserService {
 
-    @Autowired
-    JdbcTemplate jdbcTemplate;
+    Optional<User> getUserById(Long id);
 
-    void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
-        this.jdbcTemplate = jdbcTemplate;
-    }
+    Optional<User> getUserByUserName(String userName);
 
-    public List<User> getAllUsers() {
-        return jdbcTemplate.query("SELECT * FROM User", new BeanPropertyRowMapper<>(User.class));
-    }
+    User createUser(User user);
 
-    public int addUser(User user) {
-        return jdbcTemplate.update("INSERT INTO User (name) SELECT * FROM (SELECT ?) AS tmp WHERE NOT EXISTS(SELECT 1 FROM User WHERE id = ? and name = ?)", user.getName(), user.getId(), user.getName());
-    }
+    User updateUser(User user);
 
+    void deleteUser(Long id);
 
 }
